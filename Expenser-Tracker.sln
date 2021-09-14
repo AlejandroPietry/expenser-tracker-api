@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9953BBBC-6292-40EF-AFA6-B237E1D3BBB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{6FC4AA35-5281-4C7A-9C1E-AD24B78D5977}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{53D08E72-C220-4116-8195-B72A0495812F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{0FF5BDC4-7132-4006-B084-0B0960147555}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{D7B6C150-63E5-40D1-9ECC-ED67DA550A1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{C4489200-63A2-4585-A18F-F9800A57192B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{81EFBC07-4CC5-4544-9D81-AE80D18A862D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{C5D01B93-6493-4B1E-B627-73CB048D2905}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expenser-Tracker.Domain", "Expenser-Tracker.Domain\Expenser-Tracker.Domain.csproj", "{C95C09B0-3608-4E23-A544-100829514407}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expenser-Tracker.Infra.Data", "Expenser-Tracker.Infra.Data\Expenser-Tracker.Infra.Data.csproj", "{13194DDC-79C6-4E95-917C-DC713D37A9AC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenserTracker.Application", "ExpenserTracker.Application\ExpenserTracker.Application.csproj", "{6BB27C83-C94A-4064-9409-C6003F45E94F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenserTracker.Presentation", "ExpenserTracker.Presentation\ExpenserTracker.Presentation.csproj", "{4CE3422A-CA0C-4B93-B6E7-0C4AD6F94F1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenserTracker.Infra.CrossCutting.IoC", "ExpenserTracker.Infra.CrossCutting.IoC\ExpenserTracker.Infra.CrossCutting.IoC.csproj", "{AA6E4DF8-564D-441C-87B7-E5CD804E8EA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C95C09B0-3608-4E23-A544-100829514407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C95C09B0-3608-4E23-A544-100829514407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C95C09B0-3608-4E23-A544-100829514407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C95C09B0-3608-4E23-A544-100829514407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13194DDC-79C6-4E95-917C-DC713D37A9AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13194DDC-79C6-4E95-917C-DC713D37A9AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13194DDC-79C6-4E95-917C-DC713D37A9AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13194DDC-79C6-4E95-917C-DC713D37A9AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BB27C83-C94A-4064-9409-C6003F45E94F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BB27C83-C94A-4064-9409-C6003F45E94F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BB27C83-C94A-4064-9409-C6003F45E94F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BB27C83-C94A-4064-9409-C6003F45E94F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CE3422A-CA0C-4B93-B6E7-0C4AD6F94F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE3422A-CA0C-4B93-B6E7-0C4AD6F94F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE3422A-CA0C-4B93-B6E7-0C4AD6F94F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE3422A-CA0C-4B93-B6E7-0C4AD6F94F1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA6E4DF8-564D-441C-87B7-E5CD804E8EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA6E4DF8-564D-441C-87B7-E5CD804E8EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA6E4DF8-564D-441C-87B7-E5CD804E8EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA6E4DF8-564D-441C-87B7-E5CD804E8EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6FC4AA35-5281-4C7A-9C1E-AD24B78D5977} = {9953BBBC-6292-40EF-AFA6-B237E1D3BBB8}
+		{53D08E72-C220-4116-8195-B72A0495812F} = {9953BBBC-6292-40EF-AFA6-B237E1D3BBB8}
+		{0FF5BDC4-7132-4006-B084-0B0960147555} = {9953BBBC-6292-40EF-AFA6-B237E1D3BBB8}
+		{D7B6C150-63E5-40D1-9ECC-ED67DA550A1A} = {9953BBBC-6292-40EF-AFA6-B237E1D3BBB8}
+		{C4489200-63A2-4585-A18F-F9800A57192B} = {9953BBBC-6292-40EF-AFA6-B237E1D3BBB8}
+		{81EFBC07-4CC5-4544-9D81-AE80D18A862D} = {C4489200-63A2-4585-A18F-F9800A57192B}
+		{C5D01B93-6493-4B1E-B627-73CB048D2905} = {C4489200-63A2-4585-A18F-F9800A57192B}
+		{C95C09B0-3608-4E23-A544-100829514407} = {D7B6C150-63E5-40D1-9ECC-ED67DA550A1A}
+		{13194DDC-79C6-4E95-917C-DC713D37A9AC} = {81EFBC07-4CC5-4544-9D81-AE80D18A862D}
+		{6BB27C83-C94A-4064-9409-C6003F45E94F} = {0FF5BDC4-7132-4006-B084-0B0960147555}
+		{4CE3422A-CA0C-4B93-B6E7-0C4AD6F94F1C} = {6FC4AA35-5281-4C7A-9C1E-AD24B78D5977}
+		{AA6E4DF8-564D-441C-87B7-E5CD804E8EA6} = {C5D01B93-6493-4B1E-B627-73CB048D2905}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62F8CC96-3318-4413-A4A0-491910B20CAF}
+	EndGlobalSection
+EndGlobal

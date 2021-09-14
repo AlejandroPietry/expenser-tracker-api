@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Expenser_Tracker.Domain</RootNamespace>
+  </PropertyGroup>
+
+</Project>
