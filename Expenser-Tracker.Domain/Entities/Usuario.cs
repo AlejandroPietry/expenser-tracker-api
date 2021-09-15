@@ -11,5 +11,5 @@ namespace Expenser_Tracker.Domain.Entities
         public string Senha { get; set; }
         public DateTime DataCadastro { get; set; }
         public IEnumerable<Transacao> Transacaoes { get; set; }
-     }
+    }
 }

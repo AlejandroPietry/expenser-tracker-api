@@ -11,6 +11,6 @@ namespace Expenser_Tracker.Domain.Entities
         public decimal Valor { get; set; }
         public TipoTransacao TipoTransacao { get; set; }
         public DateTime DataCadastro { get; set; }
-        public virtual Usuario Usuario { get; set; } 
+        public virtual Usuario Usuario { get; set; }
     }
 }

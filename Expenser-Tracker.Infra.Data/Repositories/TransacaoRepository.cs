@@ -6,7 +6,7 @@ namespace Expenser_Tracker.Infra.Data.Repositories
 {
     public class TransacaoRepository : RepositoryBase<Transacao>, ITransacaoRepositorio
     {
-        public  TransacaoRepository(ApplicationDbContext context) : base(context)
+        public TransacaoRepository(ApplicationDbContext context) : base(context)
         {
 
         }

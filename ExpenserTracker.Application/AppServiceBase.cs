@@ -1,6 +1,5 @@
 ﻿using Expenser_Tracker.Domain.Interfaces.Servicos;
 using ExpenserTracker.Application.Interfaces;
-using System;
 using System.Collections.Generic;
 
 namespace ExpenserTracker.Application

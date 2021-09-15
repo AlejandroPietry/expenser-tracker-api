@@ -6,7 +6,7 @@ namespace Expenser_Tracker.Infra.Data.Repositories
 {
     public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepositorio
     {
-        public UsuarioRepository(ApplicationDbContext context): base(context)
+        public UsuarioRepository(ApplicationDbContext context) : base(context)
         {
 
         }

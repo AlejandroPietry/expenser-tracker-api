@@ -22,7 +22,7 @@ namespace ExpenserTracker.Presentation.Controllers
         public async void Create(TransacaoCadastro_DTO model)
         {
 
-            _transacaoAppService.Add(new Transacao() 
+            _transacaoAppService.Add(new Transacao()
             {
                 TipoTransacao = model.TipoTransacao,
                 Titulo = model.Titulo,
