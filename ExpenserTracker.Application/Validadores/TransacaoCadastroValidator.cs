@@ -11,9 +11,7 @@ namespace ExpenserTracker.Application.Validadores
         {
             RuleFor(e => e.Titulo)
                 .Length(1, 100)
-                .WithMessage("O titulo precisa ter entre 1 e 100 caracteres!");
-
-            RuleFor(e => e.Titulo)
+                .WithMessage("O titulo precisa ter entre 1 e 100 caracteres!")
                 .NotNull()
                 .NotEmpty()
                 .WithMessage("O titulo não pode ser nulo e nem vazio.");
