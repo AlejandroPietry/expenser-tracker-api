@@ -1,6 +1,6 @@
 ﻿using Expenser_Tracker.Domain.Entities;
+using ExpenserTracker.Application.DTO;
 using ExpenserTracker.Application.Interfaces;
-using ExpenserTracker.Presentation.DTO;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;

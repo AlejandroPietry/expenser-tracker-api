@@ -1,4 +1,4 @@
-﻿namespace ExpenserTracker.Presentation.DTO
+﻿namespace ExpenserTracker.Application.DTO
 {
     public class UsuarioCadastro_DTO
     {

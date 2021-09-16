@@ -1,4 +1,6 @@
+using ExpenserTracker.Application.Validadores;
 using ExpenserTracker.Infra.CrossCutting.IoC.ServiceCollection;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,10 +23,11 @@ namespace ExpenserTracker.Presentation
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddFluentValidation(p => p.RegisterValidatorsFromAssemblyContaining<TransacaoCadastroValidator>());
 
             services.AddApplication().AddInfrastructure().AddService().AddDomain();
-
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ExpenserTracker.Presentation", Version = "v1" });

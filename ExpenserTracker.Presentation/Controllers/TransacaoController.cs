@@ -1,8 +1,7 @@
 ﻿using Expenser_Tracker.Domain.Entities;
+using ExpenserTracker.Application.DTO;
 using ExpenserTracker.Application.Interfaces;
-using ExpenserTracker.Presentation.DTO;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 
 namespace ExpenserTracker.Presentation.Controllers
@@ -21,15 +20,7 @@ namespace ExpenserTracker.Presentation.Controllers
         [HttpPost, Route("criar")]
         public async void Create(TransacaoCadastro_DTO model)
         {
-
-            _transacaoAppService.Add(new Transacao()
-            {
-                TipoTransacao = model.TipoTransacao,
-                Titulo = model.Titulo,
-                Valor = model.Valor,
-                DataCadastro = DateTime.Now,
-                IdUsuario = Guid.Parse("cee9bb42-6f41-40e4-beeb-3ca160e073c6"/*User.FindFirst("id").Value*/)
-            });
+            _transacaoAppService.Criar(model);
         }
 
         [HttpDelete, Route("deletar/{id}")]

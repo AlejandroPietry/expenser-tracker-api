@@ -11,5 +11,6 @@ namespace Expenser_Tracker.Infra.Data.Context
         }
 
         public DbSet<Transacao> Transacoes { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
