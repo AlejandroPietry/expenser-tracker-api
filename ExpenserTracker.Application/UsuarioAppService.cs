@@ -11,5 +11,11 @@ namespace ExpenserTracker.Application
         {
             _usuarioService = usuarioService;
         }
+
+        public Usuario GetUsuarioForLogin(string email, string senha)
+        {
+            return _usuarioService
+                .GetUsuarioByExpression(e => e.Email == email && e.Senha == senha);
+        }
     }
 }

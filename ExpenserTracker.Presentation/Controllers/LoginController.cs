@@ -1,4 +1,5 @@
 ﻿using ExpenserTracker.Application.DTO;
+using ExpenserTracker.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using System.Threading.Tasks;
@@ -9,10 +10,17 @@ namespace ExpenserTracker.Presentation.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        [HttpPost, Route("login")]
-        public async Task<IActionResult> Login(Login_DTO model)
+        private readonly ILoginAppService _loginAppService;
+
+        public LoginController(ILoginAppService loginAppService)
         {
-            return Ok();
+            this._loginAppService = loginAppService;
+        }
+
+        [HttpPost, Route("login")]
+        public async Task<LoginRetorno_DTO> Login(Login_DTO model)
+        {
+            return _loginAppService.Logar(model);
         }
     }
 }

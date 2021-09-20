@@ -5,8 +5,13 @@ using Expenser_Tracker.Infra.Data.Context;
 using Expenser_Tracker.Infra.Data.Repositories;
 using ExpenserTracker.Application;
 using ExpenserTracker.Application.Interfaces;
+using ExpenserTracker.Infra.CrossCutting.Services.Interfaces;
+using ExpenserTracker.Infra.CrossCutting.Services.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace ExpenserTracker.Infra.CrossCutting.IoC.ServiceCollection
 {
@@ -15,6 +20,25 @@ namespace ExpenserTracker.Infra.CrossCutting.IoC.ServiceCollection
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("teste"));
+            services.AddTransient(typeof(ITokenService),typeof(TokenService));
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("chavetemporariaDepoisFacoBonitinho")),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
 
             return services;
         }

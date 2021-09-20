@@ -1,6 +1,8 @@
 ﻿using Expenser_Tracker.Domain.Entities;
 using Expenser_Tracker.Domain.Interfaces.Repositorios;
 using Expenser_Tracker.Domain.Interfaces.Servicos;
+using System;
+using System.Linq.Expressions;
 
 namespace Expenser_Tracker.Domain.Services
 {
@@ -11,6 +13,11 @@ namespace Expenser_Tracker.Domain.Services
         public UsuarioService(IUsuarioRepositorio usuarioRepositorio) : base(usuarioRepositorio)
         {
             _usuarioRepositorio = usuarioRepositorio;
+        }
+
+        public Usuario GetUsuarioByExpression(Expression<Func<Usuario, bool>> expression)
+        {
+            return _usuarioRepositorio.GetUsuarioByExpression(expression);
         }
     }
 }
