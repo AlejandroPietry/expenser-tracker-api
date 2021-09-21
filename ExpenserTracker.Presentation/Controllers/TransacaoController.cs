@@ -20,7 +20,7 @@ namespace ExpenserTracker.Presentation.Controllers
         [HttpPost, Route("criar")]
         public async void Create(TransacaoCadastro_DTO model)
         {
-            _transacaoAppService.Criar(model);
+            _transacaoAppService.Criar(model, User.FindFirst("id").Value);
         }
 
         [HttpDelete, Route("deletar/{id}")]

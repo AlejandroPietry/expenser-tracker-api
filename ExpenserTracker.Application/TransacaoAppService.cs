@@ -15,7 +15,7 @@ namespace ExpenserTracker.Application
             _transacaoService = transacaoService;
         }
 
-        public void Criar(TransacaoCadastro_DTO model)
+        public void Criar(TransacaoCadastro_DTO model, string guildUserId)
         {
             _transacaoService.Add(new Transacao()
             {
@@ -24,7 +24,7 @@ namespace ExpenserTracker.Application
                 Valor = model.Valor,
                 DataCadastro = DateTime.Now,
 
-                IdUsuario = Guid.Parse("cee9bb42-6f41-40e4-beeb-3ca160e073c6")
+                IdUsuario = Guid.Parse(guildUserId)
             });
         }
     }

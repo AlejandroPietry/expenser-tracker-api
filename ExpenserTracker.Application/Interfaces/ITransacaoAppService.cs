@@ -5,6 +5,6 @@ namespace ExpenserTracker.Application.Interfaces
 {
     public interface ITransacaoAppService : IAppServiceBase<Transacao>
     {
-        public void Criar(TransacaoCadastro_DTO model);
+        public void Criar(TransacaoCadastro_DTO model, string guildUserId);
     }
 }
