@@ -48,6 +48,7 @@ namespace ExpenserTracker.Infra.CrossCutting.IoC.ServiceCollection
             services.AddTransient(typeof(IAppServiceBase<>), typeof(AppServiceBase<>));
             services.AddTransient(typeof(ITransacaoAppService), typeof(TransacaoAppService));
             services.AddTransient(typeof(IUsuarioAppService), typeof(UsuarioAppService));
+            services.AddTransient(typeof(ILoginAppService), typeof(LoginAppService));
 
             return services;
         }

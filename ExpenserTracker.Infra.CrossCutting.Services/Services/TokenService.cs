@@ -21,7 +21,7 @@ namespace ExpenserTracker.Infra.CrossCutting.Services.Services
                 {
                     new Claim("id", usuario.Id.ToString()),
                 }),
-                Expires = DateTime.Now.AddHours(1),
+                Expires = DateTime.UtcNow.AddHours(1),
 
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             });
