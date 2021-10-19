@@ -3,6 +3,7 @@ using ExpenserTracker.Application.DTO;
 using ExpenserTracker.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ExpenserTracker.Presentation.Controllers
 {
@@ -27,6 +28,17 @@ namespace ExpenserTracker.Presentation.Controllers
         public async void Delete(int id)
         {
             _transacaoAppService.Remove(_transacaoAppService.GetById(id));
+        }
+        [HttpGet, Route("all-by-user")]
+        public async Task<IEnumerable<TransacaoRetorno_DTO>> GetAllByUserId()
+        {
+            return _transacaoAppService.GetAllByUserId(User.FindFirst("id").Value);
+        }
+
+        [HttpGet, Route("deletar-todos")]
+        public async void DeleteAllByUserId()
+        {
+            _transacaoAppService.DeletarTodosDoUsuario(User.FindFirst("id").Value);
         }
 
         [HttpGet, Route("")]
