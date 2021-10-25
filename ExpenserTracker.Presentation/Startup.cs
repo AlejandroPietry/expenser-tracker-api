@@ -1,5 +1,6 @@
 using ExpenserTracker.Application.Validadores;
 using ExpenserTracker.Infra.CrossCutting.IoC.ServiceCollection;
+using ExpenserTracker.Presentation.Hubs;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,13 +23,23 @@ namespace ExpenserTracker.Presentation
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("ClientPermission", policy =>
+                {
+                    policy.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .WithOrigins("http://localhost:3000")
+                        .AllowCredentials();
+                });
+            });
 
             services.AddControllers()
                 .AddFluentValidation(p => p.RegisterValidatorsFromAssemblyContaining<TransacaoCadastroValidator>())
                 .AddFluentValidation(p => p.RegisterValidatorsFromAssemblyContaining<LoginValidator>());
-
+            services.AddSignalR();
             services.AddApplication().AddInfrastructure().AddService().AddDomain();
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ExpenserTracker.Presentation", Version = "v1" });
@@ -38,10 +49,8 @@ namespace ExpenserTracker.Presentation
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors(x =>
-           x.AllowAnyOrigin()
-           .AllowAnyMethod()
-           .AllowAnyHeader());
+
+            app.UseCors("ClientPermission");
 
             if (env.IsDevelopment())
             {
@@ -60,6 +69,7 @@ namespace ExpenserTracker.Presentation
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<NotifyHub>("/hubs/notify");
             });
         }
     }
