@@ -1,6 +1,7 @@
 ﻿using Expenser_Tracker.Domain.Entities;
 using ExpenserTracker.Application.DTO;
 using ExpenserTracker.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace ExpenserTracker.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TransacaoController : ControllerBase
     {
         private readonly ITransacaoAppService _transacaoAppService;

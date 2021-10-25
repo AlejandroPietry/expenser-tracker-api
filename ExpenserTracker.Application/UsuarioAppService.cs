@@ -22,7 +22,7 @@ namespace ExpenserTracker.Application
 
         public RetornoBase_DTO CadastrarUsuario(UsuarioCadastro_DTO model_DTO)
         {
-            if(_usuarioService.GetUsuarioByExpression(x => x.Email == model_DTO.Email) is null)
+            if(_usuarioService.GetUsuarioByExpression(x => x.Email == model_DTO.Email) != null)
             {
                 return new RetornoBase_DTO { Error = true, ErrorMessage = "O email já está sendo utilizado!" };
             }
