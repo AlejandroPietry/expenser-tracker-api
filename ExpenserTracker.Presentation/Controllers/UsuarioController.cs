@@ -19,17 +19,12 @@ namespace ExpenserTracker.Presentation.Controllers
         }
 
         [HttpPost, Route("criar")]
-        public async Task<IActionResult> Create(UsuarioCadastro_DTO usuario)
+        public async Task<IActionResult> Create(UsuarioCadastro_DTO usuario_dto)
         {
-            Usuario user = new Usuario
-            {
-                DataCadastro = DateTime.Now,
-                Email = usuario.Email,
-                Nome = usuario.Nome,
-                Senha = usuario.Senha
-            };
-            _usuarioAppService.Add(user);
-            return Ok();
+            var response = _usuarioAppService.CadastrarUsuario(usuario_dto);
+            if (response.Error)
+                return Conflict(response);
+            return Ok(response);
         }
 
         [HttpGet, Route("getall")]
