@@ -29,7 +29,7 @@ namespace ExpenserTracker.Presentation
                 {
                     policy.AllowAnyHeader()
                         .AllowAnyMethod()
-                        .WithOrigins("http://localhost:3000")
+                        .WithOrigins(new string[] { "http://localhost:3000", "https://expenser-tracker.vercel.app/" })
                         .AllowCredentials();
                 });
             });
