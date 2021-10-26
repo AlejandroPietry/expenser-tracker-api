@@ -29,7 +29,7 @@ namespace ExpenserTracker.Presentation
                 {
                     policy.AllowAnyHeader()
                         .AllowAnyMethod()
-                        .WithOrigins(new string[] { "http://localhost:3000", "https://expenser-tracker.vercel.app/" })
+                        .WithOrigins("https://expenser-tracker.vercel.app")
                         .AllowCredentials();
                 });
             });
@@ -55,9 +55,9 @@ namespace ExpenserTracker.Presentation
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ExpenserTracker.Presentation v1"));
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ExpenserTracker.Presentation v1"));
 
             app.UseHttpsRedirection();
 
