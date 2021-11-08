@@ -13,4 +13,4 @@ Resumo de tecnologias utilizadas para o desenvolvimento dessa aplicação:
 - JWT (segurança a autenticação)
 
 # 📓 Recomendação para leitura
-- [ASP.NET Core Performance Best Practices](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices?view=aspnetcore-6.0) Boas práticas de desenpenho.
+- [ASP.NET Core Performance Best Practices](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices?view=aspnetcore-6.0) Boas práticas de desempenho.
