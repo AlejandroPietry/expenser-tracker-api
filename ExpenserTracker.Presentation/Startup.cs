@@ -34,6 +34,7 @@ namespace ExpenserTracker.Presentation
                 });
             });
 
+
             services.AddControllers()
                 .AddFluentValidation(p => p.RegisterValidatorsFromAssemblyContaining<TransacaoCadastroValidator>())
                 .AddFluentValidation(p => p.RegisterValidatorsFromAssemblyContaining<LoginValidator>());
