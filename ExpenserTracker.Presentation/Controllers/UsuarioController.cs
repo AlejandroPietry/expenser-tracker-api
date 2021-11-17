@@ -16,7 +16,7 @@ namespace ExpenserTracker.Presentation.Controllers
             _usuarioAppService = usuarioAppService;
         }
 
-        [HttpPost, Route("criar")]
+        [HttpPost, Route("")]
         public async Task<IActionResult> Create(UsuarioCadastro_DTO usuario_dto)
         {
             var response = _usuarioAppService.CadastrarUsuario(usuario_dto);
