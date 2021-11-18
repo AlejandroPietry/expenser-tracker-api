@@ -26,7 +26,8 @@ namespace ExpenserTracker.Application
             return new LoginRetorno_DTO
             {
                 Error = false,
-                JwtToken = jwtToken
+                JwtToken = jwtToken,
+                Nome = usuario.Nome
             };
         }
     }
