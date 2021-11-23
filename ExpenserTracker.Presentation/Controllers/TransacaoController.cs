@@ -38,7 +38,7 @@ namespace ExpenserTracker.Presentation.Controllers
         }
 
         [HttpGet, Route("deletar-todos")]
-        public async void DeleteAllByUserId()
+        public async Task DeleteAllByUserId()
         {
             _transacaoAppService.DeletarTodosDoUsuario(User.FindFirst("id").Value);
         }
