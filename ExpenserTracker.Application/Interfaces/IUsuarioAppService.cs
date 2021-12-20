@@ -7,5 +7,6 @@ namespace ExpenserTracker.Application.Interfaces
     {
         Usuario GetUsuarioForLogin(string email, string senha);
         RetornoBase_DTO CadastrarUsuario(UsuarioCadastro_DTO model_DTO);
+        void UploadImagemPerfil();
     }
 }

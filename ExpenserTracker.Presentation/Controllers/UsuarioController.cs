@@ -1,7 +1,9 @@
 ﻿using ExpenserTracker.Application.DTO;
 using ExpenserTracker.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace ExpenserTracker.Presentation.Controllers
@@ -31,6 +33,23 @@ namespace ExpenserTracker.Presentation.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok(_usuarioAppService.GetAll());
+        }
+        [HttpPost, Route("upload-imagem-perfil")]
+        public async Task<IActionResult> UploadImagemPerfil(IFormFile formFile)
+        {
+            string savePath = string.Concat("C:\\Users\\DEV\\Pictures\\Saved Pictures\\", formFile.FileName);
+
+            byte[] bytesFile = FileToByteArray(formFile);
+            await System.IO.File.WriteAllBytesAsync(savePath, bytesFile);
+            return Ok();
+        }
+        private byte[] FileToByteArray(IFormFile formFile)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                formFile.CopyTo(memoryStream);
+                return memoryStream.ToArray();
+            }
         }
     }
 }

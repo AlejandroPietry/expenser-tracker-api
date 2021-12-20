@@ -38,5 +38,10 @@ namespace ExpenserTracker.Application
             Add(user);
             return new RetornoBase_DTO { Error = false };
         }
+        public void UploadImagemPerfil()
+        {
+
+        }
+
     }
 }
