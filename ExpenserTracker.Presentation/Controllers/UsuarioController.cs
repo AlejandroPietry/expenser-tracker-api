@@ -34,12 +34,16 @@ namespace ExpenserTracker.Presentation.Controllers
         {
             return Ok(_usuarioAppService.GetAll());
         }
-        [HttpPost, Route("upload-imagem-perfil")]
-        public async Task<IActionResult> UploadImagemPerfil(IFormFile formFile)
-        {
-            string savePath = string.Concat("C:\\Users\\DEV\\Pictures\\Saved Pictures\\", formFile.FileName);
 
-            byte[] bytesFile = FileToByteArray(formFile);
+        [DisableRequestSizeLimit]
+        [HttpPost, Route("upload-imagem-perfil")]
+        public async Task<IActionResult> UploadImagemPerfil(IFormFile file)
+        {
+            var a = Request.Form.Files[0];
+            file = a;
+            string savePath = string.Concat("C:\\Users\\DEV\\Pictures\\Saved Pictures\\", file.FileName);
+
+            byte[] bytesFile = FileToByteArray(file);
             await System.IO.File.WriteAllBytesAsync(savePath, bytesFile);
             return Ok();
         }
