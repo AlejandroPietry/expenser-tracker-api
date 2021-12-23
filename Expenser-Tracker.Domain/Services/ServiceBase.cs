@@ -19,7 +19,8 @@ namespace Expenser_Tracker.Domain.Services
 
         public IEnumerable<T> GetAll()
         {
-            return _repository.Get();
+            //to sem tempo pra mexer nisso aqi, depois eu tiro
+            return _repository.Get(x => x == x);
         }
 
         public T GetById(int id)

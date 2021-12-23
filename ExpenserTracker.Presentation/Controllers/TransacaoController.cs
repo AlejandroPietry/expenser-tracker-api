@@ -42,11 +42,5 @@ namespace ExpenserTracker.Presentation.Controllers
         {
             _transacaoAppService.DeletarTodosDoUsuario(User.FindFirst("id").Value);
         }
-
-        [HttpGet, Route("")]
-        public IEnumerable<Transacao> GetAll()
-        {
-            return _transacaoAppService.GetAll();
-        }
     }
 }

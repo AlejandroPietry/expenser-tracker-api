@@ -28,12 +28,6 @@ namespace ExpenserTracker.Presentation.Controllers
             return Ok(response);
         }
 
-        [HttpGet, Route("getall")]
-        [Authorize]
-        public async Task<IActionResult> GetAll()
-        {
-            return Ok(_usuarioAppService.GetAll());
-        }
 
         [DisableRequestSizeLimit]
         [HttpPost, Route("upload-imagem-perfil")]
