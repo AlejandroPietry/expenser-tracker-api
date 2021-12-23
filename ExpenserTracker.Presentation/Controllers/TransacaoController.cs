@@ -21,13 +21,13 @@ namespace ExpenserTracker.Presentation.Controllers
         }
 
         [HttpPost, Route("")]
-        public async void Create(TransacaoCadastro_DTO model)
+        public async Task Create(TransacaoCadastro_DTO model)
         {
             _transacaoAppService.Criar(model, User.FindFirst("id").Value);
         }
 
         [HttpDelete, Route("deletar/{id}")]
-        public async void Delete(int id)
+        public async Task Delete(int id)
         {
             _transacaoAppService.Remove(_transacaoAppService.GetById(id));
         }
