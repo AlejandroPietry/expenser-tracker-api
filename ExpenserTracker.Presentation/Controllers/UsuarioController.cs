@@ -37,13 +37,12 @@ namespace ExpenserTracker.Presentation.Controllers
 
         [DisableRequestSizeLimit]
         [HttpPost, Route("upload-imagem-perfil")]
-        public async Task<IActionResult> UploadImagemPerfil(IFormFile file)
+        
+        public async Task<IActionResult> UploadImagemPerfil(IFormFile image)
         {
-            var a = Request.Form.Files[0];
-            file = a;
-            string savePath = string.Concat("C:\\Users\\DEV\\Pictures\\Saved Pictures\\", file.FileName);
+            string savePath = string.Concat("C:\\Users\\DEV\\Pictures\\Saved Pictures\\", image.FileName);
 
-            byte[] bytesFile = FileToByteArray(file);
+            byte[] bytesFile = FileToByteArray(image);
             await System.IO.File.WriteAllBytesAsync(savePath, bytesFile);
             return Ok();
         }

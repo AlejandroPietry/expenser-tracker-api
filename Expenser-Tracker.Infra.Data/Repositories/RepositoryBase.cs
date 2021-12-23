@@ -1,8 +1,10 @@
 ﻿using Expenser_Tracker.Domain.Interfaces.Repositorios;
 using Expenser_Tracker.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Expenser_Tracker.Infra.Data.Repositories
 {
@@ -21,14 +23,23 @@ namespace Expenser_Tracker.Infra.Data.Repositories
             _context.SaveChanges();
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> Get(Expression<Func<T, bool>> where,int skip = 0, int take = 25)
         {
-            return _context.Set<T>().ToList();
+            return _context.Set<T>()
+                .Where(where)
+                .Skip(skip)
+                .Take(take)
+                .ToList();
         }
 
-        public IEnumerable<T> GetAllAsNoTracking()
+        public IEnumerable<T> GetAllAsNoTracking(Expression<Func<T, bool>> where,int skip = 0, int take = 25)
         {
-            return _context.Set<T>().AsNoTracking().ToList();
+            return _context.Set<T>()
+                .Where(where)
+                .AsNoTracking()
+                .Skip(skip)
+                .Take(take)
+                .ToList();
         }
 
         public T GetById(int id)

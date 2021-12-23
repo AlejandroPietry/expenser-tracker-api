@@ -6,7 +6,7 @@ namespace Expenser_Tracker.Domain.Interfaces.Repositorios
     {
         T GetById(int id);
         void Add(T entity);
-        IEnumerable<T> GetAll();
+        IEnumerable<T> Get();
         IEnumerable<T> GetAllAsNoTracking();
         void Update(T entity);
         void Remove(T entity);

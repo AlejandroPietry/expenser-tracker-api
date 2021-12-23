@@ -3,7 +3,6 @@ using Expenser_Tracker.Domain.Interfaces.Repositorios;
 using Expenser_Tracker.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Expenser_Tracker.Infra.Data.Repositories
@@ -25,7 +24,7 @@ namespace Expenser_Tracker.Infra.Data.Repositories
 
         public IEnumerable<Transacao> GetAllByUserId(Guid userId)
         {
-            return _context.Transacoes.Where(x => x.IdUsuario == userId);
+            return base.GetAllAsNoTracking(x => x.IdUsuario == userId);
         }
     }
 }
