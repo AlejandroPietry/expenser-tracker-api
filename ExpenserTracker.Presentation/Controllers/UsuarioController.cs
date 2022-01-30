@@ -34,7 +34,7 @@ namespace ExpenserTracker.Presentation.Controllers
         
         public async Task<IActionResult> UploadImagemPerfil(IFormFile image)
         {
-            string savePath = string.Concat("C:\\Users\\DEV\\Pictures\\Saved Pictures\\", image.FileName);
+            string savePath = string.Concat(@"C:\Users\pietr\Pictures\expenserImages\", image.FileName);
 
             byte[] bytesFile = FileToByteArray(image);
             await System.IO.File.WriteAllBytesAsync(savePath, bytesFile);

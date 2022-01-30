@@ -17,7 +17,7 @@ namespace ExpenserTracker.Application
         public LoginRetorno_DTO Logar(Login_DTO loginData)
         {
            var usuario = _usuarioAppService.GetUsuarioForLogin(loginData.Email, loginData.Senha);
-
+            if(1 != 2)
             if (usuario is null)
                 return new LoginRetorno_DTO {Error = true, ErrorMessage = "Email ou senha incorretos" };
 

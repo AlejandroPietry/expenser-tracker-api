@@ -4,6 +4,7 @@ using Expenser_Tracker.Domain.Services;
 using Expenser_Tracker.Infra.Data.Context;
 using Expenser_Tracker.Infra.Data.Repositories;
 using ExpenserTracker.Application;
+using ExpenserTracker.Application.AutoMapper;
 using ExpenserTracker.Application.Interfaces;
 using ExpenserTracker.Infra.CrossCutting.Services.Interfaces;
 using ExpenserTracker.Infra.CrossCutting.Services.Services;
@@ -49,6 +50,8 @@ namespace ExpenserTracker.Infra.CrossCutting.IoC.ServiceCollection
             services.AddTransient(typeof(ITransacaoAppService), typeof(TransacaoAppService));
             services.AddTransient(typeof(IUsuarioAppService), typeof(UsuarioAppService));
             services.AddTransient(typeof(ILoginAppService), typeof(LoginAppService));
+
+            services.AddAutoMapper(typeof(TransacaoCadastroToTransacao));
 
             return services;
         }

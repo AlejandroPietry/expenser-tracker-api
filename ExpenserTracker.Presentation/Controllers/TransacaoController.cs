@@ -1,5 +1,4 @@
-﻿using Expenser_Tracker.Domain.Entities;
-using ExpenserTracker.Application.DTO;
+﻿using ExpenserTracker.Application.DTO;
 using ExpenserTracker.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

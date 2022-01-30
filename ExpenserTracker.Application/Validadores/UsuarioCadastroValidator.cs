@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace ExpenserTracker.Application.Validadores
 {
-    public class LoginValidator : AbstractValidator<Login_DTO>
+    public class UsuarioCadastroValidator : AbstractValidator<UsuarioCadastro_DTO>
     {
-        public LoginValidator()
+        public UsuarioCadastroValidator()
         {
             RuleFor(e => e.Email)
                 .NotEmpty()
@@ -17,12 +17,18 @@ namespace ExpenserTracker.Application.Validadores
                 .WithMessage("Email tem que ter menos de 200 caracteres.");
 
             RuleFor(e => e.Senha)
-                .NotNull()
                 .NotEmpty()
+                .NotNull()
                 .WithMessage("Senha não pode ser nulo ou vazio.")
                 .Length(7, 20)
-                .WithMessage("Tem que ter entre 7 e 20 caracteres");
+                .WithMessage("A senha precisa ter entre 7 e 20 caracteres.");
 
+            RuleFor(e => e.Nome)
+                .NotEmpty()
+                .NotNull()
+                .WithMessage("Nome não pode ser nulo ou vazio.")
+                .Length(3, 40)
+                .WithMessage("Nome tem que ter entre 3 e 40 caracteres.");
         }
     }
 }

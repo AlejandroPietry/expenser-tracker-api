@@ -5,29 +5,29 @@ using ExpenserTracker.Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 
 namespace ExpenserTracker.Application
 {
     public class TransacaoAppService : AppServiceBase<Transacao>, ITransacaoAppService
     {
         private readonly ITransacaoService _transacaoService;
+        private readonly IMapper _mapper;
 
-        public TransacaoAppService(ITransacaoService transacaoService) : base(transacaoService)
+        public TransacaoAppService(ITransacaoService transacaoService, IMapper mapper) : base(transacaoService)
         {
             _transacaoService = transacaoService;
+            _mapper = mapper;
         }
 
         public void Criar(TransacaoCadastro_DTO model, string guildUserId)
         {
-            _transacaoService.Add(new Transacao()
-            {
-                TipoTransacao = model.TipoTransacao,
-                Titulo = model.Titulo,
-                Valor = model.Valor,
-                DataCadastro = DateTime.Now,
 
-                IdUsuario = Guid.Parse(guildUserId)
-            });
+            var transacao = _mapper.Map<Transacao>(model);
+            transacao.DataCadastro = DateTime.Now;
+            transacao.IdUsuario = Guid.Parse(guildUserId);
+
+            _transacaoService.Add(transacao);
         }
 
         public void DeletarTodosDoUsuario(string idUsuario)
