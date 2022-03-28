@@ -2,7 +2,9 @@
 using ExpenserTracker.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace ExpenserTracker.Presentation.Controllers
 {
@@ -21,6 +23,21 @@ namespace ExpenserTracker.Presentation.Controllers
         public async Task<LoginRetorno_DTO> Login(Login_DTO model)
         {
             return _loginAppService.Logar(model);
+        }
+
+        [HttpGet("/get-data-async")]
+        public IAsyncEnumerable<int> GetDataAsync()
+        {
+            return GetNumbers();
+        }
+
+        private static async IAsyncEnumerable<int> GetNumbers()
+        {
+            for(int i = 0; i <=10; i++)
+            {
+                await Task.Delay(1000);
+                yield return i;
+            }
         }
     }
 }

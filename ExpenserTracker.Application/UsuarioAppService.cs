@@ -3,6 +3,7 @@ using Expenser_Tracker.Domain.Interfaces.Servicos;
 using ExpenserTracker.Application.DTO;
 using ExpenserTracker.Application.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace ExpenserTracker.Application
 {
@@ -22,12 +23,12 @@ namespace ExpenserTracker.Application
 
         public RetornoBase_DTO CadastrarUsuario(UsuarioCadastro_DTO model_DTO)
         {
-            if(_usuarioService.GetUsuarioByExpression(x => x.Email == model_DTO.Email) != null)
+            if (_usuarioService.GetUsuarioByExpression(x => x.Email == model_DTO.Email) != null)
             {
                 return new RetornoBase_DTO { Error = true, ErrorMessage = "O email já está sendo utilizado!" };
             }
 
-            Usuario user = new ()
+            Usuario user = new()
             {
                 DataCadastro = DateTime.Now,
                 Email = model_DTO.Email,
@@ -37,6 +38,10 @@ namespace ExpenserTracker.Application
 
             Add(user);
             return new RetornoBase_DTO { Error = false };
+        }
+        public IAsyncEnumerable<Usuario> GetUsuarios()
+        {
+            return _usuarioService.GetUsuarios();
         }
         public void UploadImagemPerfil()
         {
